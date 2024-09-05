@@ -1,0 +1,15 @@
+*.swp
+*.log
+/.terraform
+/TODO
+/elm-stuff/
+/packages/*/elm-stuff/
+/node_modules
+/packages/*/node_modules/
+/testfiles/
+/dist/
+/packages/*/dist/
+/.dev
+/packages/*/.dev
+/PoET
+/gen

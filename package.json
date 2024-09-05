@@ -1,0 +1,40 @@
+{
+  "name": "mapwatch",
+  "license": "GPL-3.0",
+  "private": true,
+  "scripts": {
+    "prepare": "lerna run prepare --ignore @mapwatch/electron --stream",
+    "tf:init": "terraform init",
+    "tf:plan": "terraform plan",
+    "tf:apply": "terraform apply -auto-approve",
+    "dev:www": "yarn start",
+    "start:www": "yarn start",
+    "start": "cd ./packages/www && yarn start",
+    "build:www": "cd ./packages/www && yarn build",
+    "serve:www": "cd ./packages/www/build && serve",
+    "start:electron2": "cd ./packages/electron2 && yarn start",
+    "build:electron2": "cd ./packages/electron2 && yarn build",
+    "build": "lerna run build --stream",
+    "test": "lerna run test",
+    "release": "cd ./packages/electron2 && yarn release",
+    "clean": "lerna run clean --stream && rimraf *.log",
+    "clean:npm": "yarn clean && lerna exec 'rimraf ./node_modules' --stream && rimraf ./node_modules"
+  },
+  "engines": {
+    "node": ">=20 <22"
+  },
+  "workspaces": {
+    "nohoist": [],
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "//optionalDependencies": "because travis fails to install me, but doesn't actually need me",
+  "optionalDependencies": {
+    "terraform-npm": "0.2.6"
+  },
+  "devDependencies": {
+    "lerna": "^3.16.4",
+    "rimraf": "^3.0.0"
+  }
+}
